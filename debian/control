@@ -12,6 +12,10 @@ Standards-Version: 3.9.5
 
 Package: spreedbox-fpgaprog
 Architecture: any
+Breaks:
+ dotstar-leds (<< 0.3.0),
+ spreedbox-entropy (<< 1.3.0),
+ spreedbox-rng (<< 0.1.0),
 Depends:
  libwiringpi2,
  ${shlibs:Depends},
