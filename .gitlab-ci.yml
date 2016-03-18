@@ -1,0 +1,6 @@
+build:
+  script:
+    - curl http://apt.intranet.struktur.de/struktur-ag-deb-sign-1.pub | apt-key add -
+    - echo "deb http://apt.intranet.struktur.de/spreedbox-pre/ trusty main" > /etc/apt/sources.list.d/spreedbox-pre.list
+    - apt-get -y update && apt-get -y install libwiringpi2
+    - make
