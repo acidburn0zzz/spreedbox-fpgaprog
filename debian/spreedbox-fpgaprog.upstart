@@ -8,7 +8,7 @@ stop on runlevel [!2345]
 
 task
 
-console output
+console log
 
 pre-start script
 	. /etc/default/spreedbox-fpgaprog
@@ -23,7 +23,7 @@ end script
 script
 	. /etc/default/spreedbox-fpgaprog
 
-	/usr/sbin/spreedbox-fpga -d $FPGAPROG_SPI_DEVICE $FPGAPROG_DEFAULT_BITMAP || true
+	/usr/sbin/spreedbox-fpgaprog -d $FPGAPROG_SPI_DEVICE $FPGAPROG_DEFAULT_BITMAP || true
 
 	initctl emit spreedbox-fpga-initialized
 end script
