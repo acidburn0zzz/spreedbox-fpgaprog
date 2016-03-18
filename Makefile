@@ -6,8 +6,8 @@ CFLAGS		 = -O2 -g -Wall -Wextra -Werror
 LDFLAGS      = -lwiringPi -lpthread -g -Wall -Wextra -Werror
 
 PREFIX  = $(DESTDIR)/usr
-BINDIR  = $(PREFIX)/bin
 SBINDIR = $(PREFIX)/sbin
+BITMPAS = $(PREFIX)/share/spreedbox-fpgaprog/bitmaps
 
 all: $(TARGET)
 
@@ -16,6 +16,7 @@ $(TARGET): $(OBJECTS)
 
 install: $(TARGET)
 	install -D -m 755 $(TARGET) $(SBINDIR)/$(TARGET)
+	install -D -m 644 bitmaps/slowblink.bin $(BITMAPS)/slowblink.bin
 
 clean:
 	rm -f $(TARGET) $(OBJECTS)
