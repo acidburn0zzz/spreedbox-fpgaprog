@@ -158,18 +158,23 @@ uint8_t* readFile(const char* filename, int* len)
 
 void print_help(const char* prgname)
 {
-  printf("usage: %s ice40.bitmap\n",
-         prgname);
+  fprintf(stderr,
+          "usage: %s ice40.bitmap\n"
+          " -d NAME  SPI device (default: %s)\n",
+          prgname,device);
 }
 
 int main(int argc, char *argv[])
 {
   int opt;
-  while ((opt = getopt(argc, argv, "h")) != -1) {
+  while ((opt = getopt(argc, argv, "hd:")) != -1) {
     switch (opt) {
     case 'h':
       print_help(argv[0]);
       exit(5);
+    case 'd':
+      device = optarg;
+      break;
     }
   }
 
