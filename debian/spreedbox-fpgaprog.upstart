@@ -15,5 +15,5 @@ env BITMAP=/usr/share/spreedbox-fpgaprog/bitmaps/default.bin
 script
 	/usr/sbin/spreedbox-fpgaprog -d $DEVICE $BITMAP || true
 
-	initctl emit spreedbox-fpga-initialized
+	initctl emit --no-wait spreedbox-fpga-initialized
 end script
