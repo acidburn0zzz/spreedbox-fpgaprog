@@ -5,3 +5,5 @@ include /usr/share/dpkg/default.mk
 %:
 	dh $@
 
+override_dh_installinit:
+	dh_installinit --no-start
