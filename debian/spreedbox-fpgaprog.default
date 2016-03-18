@@ -1,0 +1,2 @@
+FPGAPROG_SPI_DEVICE=/dev/spidev0.0
+FPGAPROG_DEFAULT_BITMAP=/usr/share/spreedbox-fpgaprog/bitmaps/slowblink.bin

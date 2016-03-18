@@ -1,0 +1,29 @@
+# fpgaprog - Program FPGA
+#   Programs the FPGA via SPI.
+
+description "Initialize Spreedbox FPGA"
+
+start on (startup and started kmod)
+stop on runlevel [!2345]
+
+task
+
+console output
+
+pre-start script
+	. /etc/default/spreedbox-fpgaprog
+
+	if [ ! -e "$FPGAPROG_SPI_DEVICE" ]; then
+		stop
+		initctl emit spreedbox-fpga-initialized
+		exit 0
+	fi
+end script
+
+script
+	. /etc/default/spreedbox-fpgaprog
+
+	/usr/sbin/spreedbox-fpga -d $FPGAPROG_SPI_DEVICE $FPGAPROG_DEFAULT_BITMAP || true
+
+	initctl emit spreedbox-fpga-initialized
+end script
