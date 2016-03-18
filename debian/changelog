@@ -1,3 +1,9 @@
+spreedbox-fpgaprog (0.0.2) trusty; urgency=medium
+
+  * Simplified service and use default symlink for bitmap to load on boot.
+
+ -- Simon Eisenmann <simon@struktur.de>  Fri, 18 Mar 2016 16:18:31 +0100
+
 spreedbox-fpgaprog (0.0.1) trusty; urgency=low
 
   * Initial release.
