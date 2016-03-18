@@ -7,7 +7,7 @@ LDFLAGS      = -lwiringPi -lpthread -g -Wall -Wextra -Werror
 
 PREFIX  = $(DESTDIR)/usr
 SBINDIR = $(PREFIX)/sbin
-BITMPAS = $(PREFIX)/share/spreedbox-fpgaprog/bitmaps
+BITMAPS = $(PREFIX)/share/spreedbox-fpgaprog/bitmaps
 
 all: $(TARGET)
 
