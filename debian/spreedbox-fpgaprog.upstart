@@ -10,7 +10,7 @@ task
 console log
 
 env DEVICE=/dev/spidev0.0
-env BITMAP=/usr/share/spreedbox-fpgaprog/bitmaps/slowblink.bin
+env BITMAP=/usr/share/spreedbox-fpgaprog/bitmaps/default.bin
 
 script
 	/usr/sbin/spreedbox-fpgaprog -d $DEVICE $BITMAP || true

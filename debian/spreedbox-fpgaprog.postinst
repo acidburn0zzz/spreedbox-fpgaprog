@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+	if [ ! -e /usr/share/spreedbox-fpgaprog/bitmaps/default.bin ]; then
+		ln -sfT slowblink.bin /usr/share/spreedbox-fpgaprog/bitmaps/default.bin
+	fi
+fi
+
+#DEBHELPER#
