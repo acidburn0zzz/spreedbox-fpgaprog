@@ -1,6 +1,22 @@
+before_script:
+  - ssh-keyscan -t rsa,dsa,ecdsa github.com $ADDITIONAL_GIT_SERVERS > /etc/ssh/ssh_known_hosts
+
+variables:
+  UPSTREAM_REPOSITORY: "git@github.com:spreedbox/spreedbox-fpgaprog.git"
+  UPSTREAM_BRANCH: "master"
+
 build:
   script:
     - curl http://apt.intranet.struktur.de/struktur-ag-deb-sign-1.pub | apt-key add -
     - echo "deb http://apt.intranet.struktur.de/spreedbox-pre/ trusty main" > /etc/apt/sources.list.d/spreedbox-pre.list
     - apt-get -y update && apt-get -y install libwiringpi2
     - make
+
+mirror-master:
+  stage: deploy
+  only:
+    - master
+  script:
+    - git remote add upstream $UPSTREAM_REPOSITORY || true
+    - git fetch upstream
+    - git push --progress upstream HEAD:$UPSTREAM_BRANCH
