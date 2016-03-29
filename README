@@ -1,0 +1,13 @@
+Software for uploading Lattice iCE40 HX1K bitmap files to the Spreedbox PCB via SPI Slave Configuration.
+
+Compile with 'make'.
+
+Usage:
+spreedbox-fpga [OPTIONS] bitmap-file
+  -d NAME  SPI device (default: /dev/spidev0.0)
+  -h       show help
+
+Currently, any SPI device will do since chip-selected is controlled directly by the programmer software.
+Note that no other SPI data transfers should happen when the programmer is running (dotstar LEDs and spreedbox-rng).
+
+An example FPGA configuration file is provided in the 'bitmap' directory.

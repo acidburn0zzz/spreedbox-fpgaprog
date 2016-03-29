@@ -160,7 +160,8 @@ void print_help(const char* prgname)
 {
   fprintf(stderr,
           "usage: %s ice40.bitmap\n"
-          " -d NAME  SPI device (default: %s)\n",
+          " -d NAME  SPI device (default: %s)\n"
+          " -h       show help\n",
           prgname,device);
 }
 
