@@ -3,7 +3,7 @@ before_script:
 
 variables:
   UPSTREAM_REPOSITORY: "git@github.com:spreedbox/spreedbox-fpgaprog.git"
-  UPSTREAM_BRANCH: "master"
+  UPSTREAM_BRANCH: "refs/heads/master"
 
 build:
   script:
